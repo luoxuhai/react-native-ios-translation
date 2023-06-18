@@ -1,6 +1,8 @@
 # react-native-ios-translation
 
-react-native-ios-translation
+**A React Native library that calls iOS's built-in translation feature.**
+
+<img src="./screenshot.jpeg" width="320px" />
 
 ## Installation
 
@@ -11,11 +13,15 @@ npm install react-native-ios-translation
 ## Usage
 
 ```js
-import { multiply } from 'react-native-ios-translation';
+import { present } from 'react-native-ios-translation';
 
-// ...
-
-const result = await multiply(3, 7);
+try {
+  await present({
+    text: 'Everything you can imagine is real.'
+  });
+} catch (error) {
+  console.error(error);
+}
 ```
 
 ## Contributing

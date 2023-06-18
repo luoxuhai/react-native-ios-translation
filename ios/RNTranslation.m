@@ -1,8 +1,8 @@
 #import <React/RCTBridgeModule.h>
 
-@interface RCT_EXTERN_MODULE(IosTranslation, NSObject)
+@interface RCT_EXTERN_MODULE(RNTranslation, NSObject)
 
-RCT_EXTERN_METHOD(multiply:(float)a withB:(float)b
+RCT_EXTERN_METHOD(present:(NSDictionary *) options
                  withResolver:(RCTPromiseResolveBlock)resolve
                  withRejecter:(RCTPromiseRejectBlock)reject)
 

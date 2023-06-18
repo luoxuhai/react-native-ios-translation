@@ -1,7 +1,7 @@
 {
   "name": "react-native-ios-translation",
   "version": "0.1.0",
-  "description": "test",
+  "description": "A React Native library that calls iOS's built-in translation feature",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
@@ -10,17 +10,11 @@
   "files": [
     "src",
     "lib",
-    "android",
     "ios",
     "cpp",
     "*.podspec",
     "!lib/typescript/example",
     "!ios/build",
-    "!android/build",
-    "!android/gradle",
-    "!android/gradlew",
-    "!android/gradlew.bat",
-    "!android/local.properties",
     "!**/__tests__",
     "!**/__fixtures__",
     "!**/__mocks__",
@@ -39,7 +33,7 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "translation"
   ],
   "repository": "https://github.com/luoxuhai/react-native-ios-translation",
   "author": "Darkce <darkce97@gmail.com> (https://github.com/luoxuhai)",

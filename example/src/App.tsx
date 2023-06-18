@@ -1,18 +1,24 @@
 import * as React from 'react';
+import { StyleSheet, View, Text, Button, findNodeHandle } from 'react-native';
+import { present } from 'react-native-ios-translation';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-ios-translation';
+const text = 'Everything you can imagine is real.';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  const ref = React.useRef<Text>(null);
 
   React.useEffect(() => {
-    multiply(3, 7).then(setResult);
+    present({
+      text,
+      node: findNodeHandle(ref.current),
+    });
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>English: </Text>
+      <Text ref={ref}>{text}</Text>
+      <Button title="Translate" />
     </View>
   );
 }

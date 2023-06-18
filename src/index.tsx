@@ -6,8 +6,8 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo Go\n';
 
-const IosTranslation = NativeModules.IosTranslation
-  ? NativeModules.IosTranslation
+const RNTranslation = NativeModules.RNTranslation
+  ? NativeModules.RNTranslation
   : new Proxy(
       {},
       {
@@ -17,6 +17,11 @@ const IosTranslation = NativeModules.IosTranslation
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return IosTranslation.multiply(a, b);
+interface IOptions {
+  text: string;
+  node?: number | null;
+}
+
+export function present(options: IOptions): Promise<number> {
+  return RNTranslation.present(options);
 }
