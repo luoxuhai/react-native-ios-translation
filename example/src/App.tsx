@@ -1,5 +1,12 @@
 import * as React from 'react';
-import { StyleSheet, View, Text, Button, findNodeHandle } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Button,
+  findNodeHandle,
+  PlatformColor,
+} from 'react-native';
 import { present } from 'react-native-ios-translation';
 
 const text = 'Everything you can imagine is real.';
@@ -7,18 +14,21 @@ const text = 'Everything you can imagine is real.';
 export default function App() {
   const ref = React.useRef<Text>(null);
 
-  React.useEffect(() => {
-    present({
-      text,
-      node: findNodeHandle(ref.current),
-    });
-  }, []);
-
   return (
     <View style={styles.container}>
-      <Text>English: </Text>
-      <Text ref={ref}>{text}</Text>
-      <Button title="Translate" />
+      <Text style={styles.text}>English: </Text>
+      <Text style={styles.text} ref={ref}>
+        {text}
+      </Text>
+      <Button
+        title="Translate"
+        onPress={() => {
+          present({
+            text,
+            node: findNodeHandle(ref.current),
+          });
+        }}
+      />
     </View>
   );
 }
@@ -33,5 +43,8 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     marginVertical: 20,
+  },
+  text: {
+    color: PlatformColor('label'),
   },
 });
