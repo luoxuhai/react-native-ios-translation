@@ -1,12 +1,5 @@
 import * as React from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Button,
-  findNodeHandle,
-  PlatformColor,
-} from 'react-native';
+import { StyleSheet, View, Text, Button, PlatformColor } from 'react-native';
 import { present } from 'react-native-ios-translation';
 
 const text = 'Everything you can imagine is real.';
@@ -16,7 +9,6 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>English: </Text>
       <Text style={styles.text} ref={ref}>
         {text}
       </Text>
@@ -25,7 +17,7 @@ export default function App() {
         onPress={() => {
           present({
             text,
-            node: findNodeHandle(ref.current),
+            targetViewNode: ref.current,
           });
         }}
       />

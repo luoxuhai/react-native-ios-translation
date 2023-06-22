@@ -36,7 +36,6 @@ class RNTranslation: NSObject {
       } else {
           reject("ERROR", "Only iOS 15+ is supported", nil)
       }
-
   }
 
   private func encodeBase64(_ text: String) -> String {

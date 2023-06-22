@@ -2,7 +2,10 @@
 
 **A React Native library that calls iOS's built-in translation feature.**
 
-<img src="./screenshot.jpeg" width="320px" />
+<div align="center">
+  <img src="./screenshot-iphone.jpeg" width="280px" />
+  <img src="./screenshot-ipad.png" width="280px" />
+</div>
 
 ## Installation
 
@@ -11,6 +14,8 @@ npm install react-native-ios-translation
 ```
 
 ## Usage
+
+### Basic
 
 ```js
 import { present } from 'react-native-ios-translation';
@@ -21,6 +26,30 @@ try {
   });
 } catch (error) {
   console.error(error);
+}
+```
+
+### Advanced
+
+```jsx
+import { present } from 'react-native-ios-translation';
+
+function App() {
+  const ref = React.useRef<Text>(null);
+  const text = 'Everything you can imagine is real.';
+
+  const handlePresentTranslation = () => {
+    present({
+      text,
+      targetViewNode: ref.current,
+    });
+  };
+
+  return (
+    <Text ref={ref} onPress={handlePresentTranslation}>
+      {text}
+    </Text>
+  );
 }
 ```
 

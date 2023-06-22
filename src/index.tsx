@@ -1,4 +1,4 @@
-import { NativeModules, Platform } from 'react-native';
+import { NativeModules, Platform, findNodeHandle } from 'react-native';
 
 const LINKING_ERROR =
   `The package 'react-native-ios-translation' doesn't seem to be linked. Make sure: \n\n` +
@@ -19,9 +19,15 @@ const RNTranslation = NativeModules.RNTranslation
 
 interface IOptions {
   text: string;
-  node?: number | null;
+  targetViewNode?: React.Component<any, any> | React.ComponentClass<any> | null;
 }
 
 export function present(options: IOptions): Promise<number> {
-  return RNTranslation.present(options);
+  const { text, targetViewNode } = options;
+  const node = targetViewNode ? findNodeHandle(targetViewNode) : undefined;
+
+  return RNTranslation.present({
+    text,
+    node,
+  });
 }
