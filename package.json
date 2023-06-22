@@ -1,6 +1,6 @@
 {
   "name": "react-native-ios-translation",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A React Native library that calls iOS's built-in translation feature",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
