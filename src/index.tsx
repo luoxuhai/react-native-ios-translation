@@ -19,7 +19,11 @@ const RNTranslation = NativeModules.RNTranslation
 
 interface IOptions {
   text: string;
-  targetViewNode?: React.Component<any, any> | React.ComponentClass<any> | null;
+  targetViewNode?:
+    | number
+    | React.Component<any, any, any>
+    | React.ComponentClass<any, any>
+    | null;
 }
 
 export function present(options: IOptions): Promise<number> {
